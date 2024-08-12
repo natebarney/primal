@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-png" href="primal.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="random.js"></script>
+    <script src="algorithm.js"></script>
+    <script src="prime.js"></script>
+    <script src="cell.js"></script>
+    <script src="game.js"></script>
+    <title>Primal</title>
+  </head>
+
+  <body onload="init_game()">
+    <div id="header"></div>
+    <div id="instructions"><a href="instructions.html">How to Play</a></div>
+    <div id="game"></div>
+    <div id="keyboard" class="hidden">
+      <table>
+        <tr>
+          <td id="0" onclick="game.send_key('0');">0</td>
+          <td id="1" onclick="game.send_key('1');">1</td>
+          <td id="2" onclick="game.send_key('2');">2</td>
+          <td id="3" onclick="game.send_key('3');">3</td>
+          <td id="4" onclick="game.send_key('4');">4</td>
+          <td id="5" onclick="game.send_key('5');">5</td>
+        </tr>
+        <tr>
+          <td id="enter" onclick="game.submit_guess();">&crarr;</td>
+          <td id="6" onclick="game.send_key('6');">6</td>
+          <td id="7" onclick="game.send_key('7');">7</td>
+          <td id="8" onclick="game.send_key('8');">8</td>
+          <td id="9" onclick="game.send_key('9');">9</td>
+          <td id="backspace" onclick="game.backspace();">&#9003;</td>
+        </tr>
+      </table>
+    </div>
+    <div id="options" class="hidden">
+        <div>
+            <input type="checkbox" id="require_prime">
+            <label for="require_prime">Prime guesses only</label>
+        </div>
+        <div>
+            <input type="checkbox" id="prime_guide">
+            <label for="prime_guide">Prime guide</label>
+        </div>
+    </div>
+    <div id="footer" class="hidden">
+      <button onclick="new_game();">New Game</button>
+      <a id="permalink">Permalink</a>
+    </div>
+  </body>
+
+</html>

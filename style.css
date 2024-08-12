@@ -1,0 +1,165 @@
+body {
+    background-color: #101010;
+    color: white;
+}
+
+a {
+    color: hsl(220, 100%, 80%);
+}
+
+a:active {
+    color: hsl(0, 100%, 80%);
+}
+
+a:visited {
+    color: hsl(300, 100%, 80%);
+}
+
+#header {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#instructions {
+    text-align: center;
+}
+
+#game, #options, #footer {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+table.game {
+    border-spacing: 5px;
+}
+
+p,ul {
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.game td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-width: 1px;
+    user-select: none;
+}
+
+.minigrid {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    grid-template-rows: 25% 25% 25% 25%;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: normal;
+    color: #404040;
+}
+
+.minigrid .possible {
+    color: white;
+}
+
+#keyboard {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#keyboard table {
+    border-spacing: 5px;
+}
+
+#keyboard td {
+    width: 30px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+td#enter {
+    font-size: 30px;
+}
+
+td.empty {
+    border-color: #404040;
+}
+
+td.entry {
+    border-color: #c0c0c0;
+}
+
+td.available {
+    border-color: #808080;
+    background-color: #808080;
+}
+
+td.none {
+    border-color: #404040;
+    background-color: #404040;
+}
+
+td.misplaced {
+    border-color: #b4a03c;
+    background-color: #b4a03c;
+}
+
+td.correct {
+    border-color: #548c50;
+    background-color: #548c50;
+}
+
+.popup {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    padding: 5px 10px;
+    top: 65px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    border-radius: 5px;
+    user-select: none;
+    text-align: center;
+}
+
+.exponent {
+    font-size: 50%;
+    vertical-align: super;
+}
+
+.bold {
+    font-weight: bold;
+}

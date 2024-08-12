@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-png" href="primal.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Primal Instructions</title>
+  </head>
+
+  <body>
+
+    <h1>How to Play</h1>
+    <p>
+        The goal of Primal is to guess a random five-digit prime number in six
+        or fewer attempts. A prime number is an integer greater than 1 that is
+        not evenly divisible by any number other than 1 or itself. (Wikipedia
+        has a nice article on
+        <a href="https://en.wikipedia.org/wiki/Prime_number"
+        target="_blank">prime numbers</a> for those unfamiliar with them.) After
+        each guess is entered, its digits are colored according to the following
+        rules. These colors provide clues that can inform the next guess.
+    </p>
+    <p>
+        <ul>
+            <li>
+                <p>
+                    Digits which do not appear in the goal number are colored
+                    in grey. In the following example, the goal number contains
+                    none of the guessed digits.
+                </p>
+            </li>
+        </ul>
+        <p>
+            <table class="game">
+                <tr>
+                    <td class="none">1</td>
+                    <td class="none">5</td>
+                    <td class="none">0</td>
+                    <td class="none">8</td>
+                    <td class="none">9</td>
+                </tr>
+            </table>
+        </p>
+        <ul>
+            <li>
+                <p>
+                    Digits which are in the goal number, but which are
+                    incorrectly placed, are colored in yellow. In this example,
+                    there is at least one 3 in the goal number, but the second
+                    position does not contain a 3.
+                </p>
+            </li>
+        </ul>
+        <p>
+            <table class="game">
+                <tr>
+                    <td class="none">1</td>
+                    <td class="misplaced">3</td>
+                    <td class="none">8</td>
+                    <td class="none">5</td>
+                    <td class="none">9</td>
+                </tr>
+            </table>
+        </p>
+        <ul>
+            <li>
+                <p>
+                    Digits which are correctly placed are colored in green. In
+                    this example, there is at least one 3 in the goal number,
+                    and the last position contains a 3.
+                </p>
+            </li>
+        </ul>
+        <p>
+            <table class="game">
+                <tr>
+                    <td class="none">1</td>
+                    <td class="none">9</td>
+                    <td class="none">5</td>
+                    <td class="none">8</td>
+                    <td class="correct">3</td>
+                </tr>
+            </table>
+        </p>
+        <ul>
+            <li>
+                <p>
+                    Digits may occur more than once in a prime number. If a
+                    digit is repeated in a guess, any instances in the correct
+                    position are colored green, then any remaining instances
+                    are colored yellow from left to right until either all
+                    instances in the guess have been colored, or the total count
+                    of colored instances in the guess matches the count of
+                    instances of that digit in the goal number.
+                </p>
+                <p>
+                    In this example, the goal number contains two 0's. One is
+                    in the fourth position, and the other is not in the second
+                    or third positions.
+                </p>
+            </li>
+        </ul>
+        <p>
+            <table class="game">
+                <tr>
+                    <td class="none">1</td>
+                    <td class="misplaced">0</td>
+                    <td class="none">0</td>
+                    <td class="correct">0</td>
+                    <td class="none">7</td>
+                </tr>
+            </table>
+        </p>
+    </p>
+
+    <h1>Valid Guesses</h1>
+    <p>
+        By default, Primal will only allow prime numbers to be entered as
+        guesses. If a non-prime number is guessed, the guess will be rejected
+        with an error message. If the number guessed is composite (i.e. not
+        prime, 0, or 1), the error message will display its <a target="_blank"
+        href="https://en.wikipedia.org/wiki/Integer_factorization">prime
+        factorization</a>.
+    </p>
+    <p>
+        At present, this behavior can be changed by unchecking the &ldquo;Prime
+        guesses only&rdquo; checkbox. If this box isn't checked, any five-digit
+        number may be guessed. This checkbox may be removed in a future version,
+        requiring that guesses be prime numbers.
+    </p>
+
+    <h1>Prime Guide</h1>
+    <p>
+        The prime guide is a feature which assists in entering prime numbers.
+        As a guess is entered, the next position to be filled will contain a
+        small grid with the digits 0 through 9. If a digit can lead to a prime
+        number when entered, it is colored white in the small grid. If it
+        cannot, it is colored grey. This feature may be disabled by unchecking
+        the &ldquo;Prime guide&rdquo; checkbox.
+    </p>
+    <p>
+        In this example, the prime guide shows that the only five-digit prime
+        numbers that begin with &ldquo;123&rdquo; have one of &ldquo;2&rdquo;,
+        &ldquo;4&rdquo;, &ldquo;7&rdquo;, &ldquo;9&rdquo;, or &ldquo;0&rdquo; in
+        the fourth position.
+    </p>
+    <p>
+        <table class="game">
+            <tr>
+                <td class="entry">1</td>
+                <td class="entry">2</td>
+                <td class="entry">3</td>
+                <td class="empty">
+                    <div class="minigrid">
+                        <div>1</div>
+                        <div class="possible">2</div>
+                        <div>3</div>
+                        <div class="possible">4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div class="possible">7</div>
+                        <div>8</div>
+                        <div class="possible">9</div>
+                        <div></div>
+                        <div class="possible">0</div>
+                        <div></div>
+                    </div>
+                </td>
+                <td class="empty"></td>
+            </tr>
+        </table>
+    </p>
+    <p>In fact, the five-digit primes beginning with &ldquo;123&rdquo; are:</p>
+    <ul>
+        <li>123<span class="bold">0</span>1,</li>
+        <li>123<span class="bold">2</span>3,</li>
+        <li>123<span class="bold">2</span>9,</li>
+        <li>123<span class="bold">4</span>3,</li>
+        <li>123<span class="bold">4</span>7,</li>
+        <li>123<span class="bold">7</span>3,</li>
+        <li>123<span class="bold">7</span>7,</li>
+        <li>123<span class="bold">7</span>9, and</li>
+        <li>123<span class="bold">9</span>1,</li>
+    </ul>
+    <p>which matches the prime guide display above.</p>
+
+    <h1>On-Screen Keyboard</h1>
+    <p>
+        If the device being used to play Primal has a physical keyboard (e.g. a
+        computer), that can be used to enter guesses. The backspace key clears
+        the most recently entered digit, and if all five digits are filled in,
+        the enter or return key submits the guess.
+    </p>
+    <p>
+        To facilitate play on devices without a physical keyboard (e.g. mobile
+        phones), Primal provides an on-screen keyboard with the digits 0-9, an
+        enter key (&crarr;), and a backspace key (&#9003;). It is positioned
+        below the main grid, and looks like this:
+    </p>
+    <p>
+        <div id="keyboard" style="margin-left: 0;">
+            <table>
+                <tr>
+                    <td id="0" class="available">0</td>
+                    <td id="1" class="available">1</td>
+                    <td id="2" class="available">2</td>
+                    <td id="3" class="available">3</td>
+                    <td id="4" class="available">4</td>
+                    <td id="5" class="available">5</td>
+                </tr>
+                <tr>
+                    <td id="enter" class="available">&crarr;</td>
+                    <td id="6" class="available">6</td>
+                    <td id="7" class="available">7</td>
+                    <td id="8" class="available">8</td>
+                    <td id="9" class="available">9</td>
+                    <td id="backspace" class="available">&#9003;</td>
+                </tr>
+            </table>
+        </div>
+    </p>
+    <p>
+        As an aid to the player, as guessed digits are colored in the main grid,
+        the corresponding key is colored the same way. If multiple instances of
+        the digit are colored differently in the main grid, the on-screen
+        keyboard key is colored in the priority order green, yellow, grey.
+    </p>
+
+    <h1>Seed Values, New Game, and Permalink</h1>
+    <p>
+        At the top of the game page, the name &ldquo;Primal&rdquo; is followed
+        by a long number. This number is the seed value used by the random
+        number generator to select the random prime to be guessed. Normally, the
+        seed value is itself randomly selected by using sources of randomness
+        provided by the web browser.
+    </p>
+    <p>
+        However, the seed can instead be specified in the URL query string by
+        using the <span style="font-family: monospace;">seed=</span> query
+        parameter. The game generates a link with this parameter, titled
+        &ldquo;Permalink&rdquo;, after the current game is complete. This URL
+        can be used to share a specific puzzle, if desired.
+    </p>
+    <p>
+        At the end of a game, a &ldquo;New Game&rdquo; button is provided,
+        which starts a new game with a new random prime. This button clears any
+        seed parameter specified in the URL query string, so it will select a
+        new prime even if the game was started from a permalink.
+    </p>
+
+    <h1 style="text-align: center;"><a href="./">Play Primal</a></h1>
+  </body>
+
+</html>
